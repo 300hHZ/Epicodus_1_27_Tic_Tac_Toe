@@ -1,12 +1,15 @@
-## {Name of project} 
-#### *Epicodus Practice lesson #-- (Week --) on -/--/2021*
-***By Daniel Adeyemi***
+## Tic Tac Toe game
+#### *Epicodus Practice lesson #24 (Week 4) on 1/27/2021*
+***By Daniel Adeyemi, Jonah Johansen,  Woo Jin Kim***
 ___
 ### *This project is not in a complete or portfolio ready state, and should not be considered as representation of professional work.*
 ---
 ## *Description:*
 ### *{Some concise description}* 
 This web page will ...
+
+## *Blueprint of bussiness logic*
+![img](img/whiteboard.png)
 
 ## *Tests*
  
@@ -51,5 +54,5 @@ This project has almost no style and was used only for practice purporse.
 
 ## *License and copyright:*
 
-> ***© Daniel Adeyemi, 2021***   
+> ***© Daniel Adeyemi, Jonah Johansen,  Woo Jin Kim, 2021***   
 > *Licensed under [MIT license](https://mit-license.org/)*

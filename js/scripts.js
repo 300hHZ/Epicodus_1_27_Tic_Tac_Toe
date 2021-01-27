@@ -14,36 +14,16 @@
 // board.gameOver(); // returns a boolean
 
 
-// function Gameboard() {
-//   board = [];
-//   for (let i = 0; i < 3; i++) {
-//     for (let j = 0; j < 3; j++) {
-//       board[i][j] = "#";
-
-//     }
-//   }
-// }
-
-// function cleanGameboard() {
-//   board = [[],[],[]];
-//   for (let i = 0; i < 3; i++) {
-//     for (let j = 0; j < 3; j++) {
-//       board[i][j] = "";
-//     }
-//   }
-//   return board;
-// }
-
 function Player(mark) {
   this.score = 0;
   this.mark = mark;
 }
 
-function Game() {
-  this.players = {};
+function Game(p1, p2) {
+  this.players = [p1, p2];
   this.higherScore = 0;
   this.status = true;
-  this.turn = "O";
+  this.turn = 0;
 }
 
 Game.prototype.generateBoard = function() {
@@ -74,9 +54,57 @@ GameBoard.prototype.value = function(x, y) {
 
 let p1 = new Player("O");
 let p2 = new Player("X");
-let game = new Game();
+let game = new Game(p1, p2);
 
+function checkIfWin(gameboard, winArray, symbol) {
+  for (i = 0; i < winArray.length; i++) {
+    if (gameboard.value(winArray[i][0][0], winArray[i][0][1]) === symbol && gameboard.value(winArray[i][1][0], winArray[i][1][1]) === symbol && gameboard.value(winArray[i][2][0], winArray[i][2][1]) === symbol)
+      console.log("Woop")
+  }
+};
 
+winArray = [
+  [
+    [0, 0],
+    [0, 1],
+    [0, 2]
+  ],
+  [
+    [1, 0],
+    [1, 1],
+    [1, 2]
+  ],
+  [
+    [2, 0],
+    [2, 1],
+    [2, 2]
+  ],
+  [
+    [0, 0],
+    [1, 0],
+    [2, 0]
+  ],
+  [
+    [0, 1],
+    [1, 1],
+    [2, 1]
+  ],
+  [
+    [0, 2],
+    [1, 2],
+    [2, 2]
+  ],
+  [
+    [0, 0],
+    [1, 1],
+    [2, 2]
+  ],
+  [
+    [2, 0],
+    [1, 1],
+    [0, 2]
+  ]
+]
 
 $(document).ready(function() {
 
@@ -87,8 +115,11 @@ $(document).ready(function() {
     const id = $(this).attr("id");
     const x = parseInt(id[1]);
     const y = parseInt(id[0]);
-    currentBoard.add(x, y, "X");
+    currentBoard.add(x, y, game.players[game.turn].mark);
     console.log(`X:${x} Y:${y}`);
     console.log(currentBoard.board);
+    //check if win condition
+    checkIfWin(currentBoard, winArray, "O" /*game.players[game.turn].mark*/ );
+    game.turn = (game.turn ? 0 : 1);
   });
 });

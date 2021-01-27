@@ -19,5 +19,5 @@
 
 .clicked {
   background-color: orange !important;
-  pointer-events: none
+  pointer-events: none;
 }

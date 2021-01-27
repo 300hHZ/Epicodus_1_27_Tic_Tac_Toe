@@ -1,8 +1,7 @@
 function checkIfWin(gameboard, winArray, symbol) {
   for (i = 0; i < winArray.length; i++) {
-
-    if (winArray[0] == symbol)
-
+    if (gameboard[winArray[i][0][0]][winArray[i][0][1]] === symbol && gameboard[winArray[i][1][0]][winArray[i][1][1]] === symbol && gameboard[winArray[i][2][0]][winArray[i][2][1]] === symbol)
+      console.log("Woop")
   }
 };
 

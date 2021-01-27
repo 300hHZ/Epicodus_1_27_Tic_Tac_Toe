@@ -41,7 +41,7 @@ function Player(mark) {
 
 function Game() {
   this.players = {};
-  this.higherScore = higherScore;
+  this.higherScore = 0;
   this.status = true;
   this.turn = "O";
 }
@@ -71,3 +71,19 @@ GameBoard.prototype.add = function(x, y, mark) {
 GameBoard.prototype.value = function(x, y) {
   return this.board[x][y]
 }
+
+let p1 = new Player("O");
+let p2 = new Player("X");
+let game = new Game();
+
+
+
+
+
+$(document).ready(function() {
+  $("#gameboard>div>div").on("click", function() {
+    $(this).addClass("clicked");
+    const id = $(this).attr("id");
+    console.log(id);
+  });
+});

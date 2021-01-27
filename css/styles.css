@@ -1,0 +1,23 @@
+#gameboard {
+  width: 600px;
+  height: 600px;
+  display: flex;
+}
+
+#gameboard>div {
+  width: 200px;
+}
+
+#gameboard>div>div {
+  height: 200px;
+  background-color: green;
+}
+
+#gameboard>div>div:hover {
+  background-color: blue;
+}
+
+.clicked {
+  background-color: orange !important;
+  pointer-events: none
+}

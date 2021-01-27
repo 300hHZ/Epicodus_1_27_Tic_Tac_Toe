@@ -1,6 +1,48 @@
-//------Example code
-// let testPlayer = new Player("X");
-// testPlayer.mark(); // returns "X"
+const winArray = [
+    [
+      [0, 0],
+      [0, 1],
+      [0, 2]
+    ],
+    [
+      [1, 0],
+      [1, 1],
+      [1, 2]
+    ],
+    [
+      [2, 0],
+      [2, 1],
+      [2, 2]
+    ],
+    [
+      [0, 0],
+      [1, 0],
+      [2, 0]
+    ],
+    [
+      [0, 1],
+      [1, 1],
+      [2, 1]
+    ],
+    [
+      [0, 2],
+      [1, 2],
+      [2, 2]
+    ],
+    [
+      [0, 0],
+      [1, 1],
+      [2, 2]
+    ],
+    [
+      [2, 0],
+      [1, 1],
+      [0, 2]
+    ]
+  ]
+  //------Example code
+  // let testPlayer = new Player("X");
+  // testPlayer.mark(); // returns "X"
 
 // let board = new Board();
 // let testSpace = board.find(1, 2); // board.find(1,2) returns a Space object
@@ -63,48 +105,6 @@ function checkIfWin(gameboard, winArray, symbol) {
   }
 };
 
-winArray = [
-  [
-    [0, 0],
-    [0, 1],
-    [0, 2]
-  ],
-  [
-    [1, 0],
-    [1, 1],
-    [1, 2]
-  ],
-  [
-    [2, 0],
-    [2, 1],
-    [2, 2]
-  ],
-  [
-    [0, 0],
-    [1, 0],
-    [2, 0]
-  ],
-  [
-    [0, 1],
-    [1, 1],
-    [2, 1]
-  ],
-  [
-    [0, 2],
-    [1, 2],
-    [2, 2]
-  ],
-  [
-    [0, 0],
-    [1, 1],
-    [2, 2]
-  ],
-  [
-    [2, 0],
-    [1, 1],
-    [0, 2]
-  ]
-]
 
 $(document).ready(function() {
 
@@ -118,8 +118,9 @@ $(document).ready(function() {
     currentBoard.add(x, y, game.players[game.turn].mark);
     console.log(`X:${x} Y:${y}`);
     console.log(currentBoard.board);
+    $(this).html(game.players[game.turn].mark);
     //check if win condition
-    checkIfWin(currentBoard, winArray, "O" /*game.players[game.turn].mark*/ );
+    checkIfWin(currentBoard, winArray, game.players[game.turn].mark);
     game.turn = (game.turn ? 0 : 1);
   });
 });

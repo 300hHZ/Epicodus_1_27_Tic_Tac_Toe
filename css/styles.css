@@ -20,4 +20,8 @@
 .clicked {
   background-color: orange !important;
   pointer-events: none;
+  font-size: 200px;
+  text-align: center;
+  padding: 0px;
+  line-height: 180px;
 }

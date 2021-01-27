@@ -12,7 +12,23 @@ This web page will ...
 ![img](img/whiteboard.png)
 
 ## *Tests*
- 
+
+**Describe: `constractor Player() {score and mark}`**   
+**Describe: `constractor GameBoard() {2D array}`**
+**Describe: `constractor Game() {players, higher score, game status, turn}`**      
+#### Test 1:
+**Test:** *...*   
+**Expect:** *function(???).toEqual(???)* 
+#### Test 2:   
+**Test:** *...*   
+**Expect:** *function(???).toEqual(???)* 
+#### Test 3:   
+**Test:** *...*   
+**Expect:** *function(???).toEqual(e)*   
+#### Test 4:   
+**Test:** *...*   
+**Expect:** *function(???).toEqual(???)* 
+
 **Describe: `function()`**   
 #### Test 1:
 **Test:** *...*   

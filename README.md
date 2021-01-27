@@ -17,14 +17,17 @@ This web page will ...
 **Describe: `constractor GameBoard() {2D array}`**
 **Describe: `constractor Game() {players, higher score, game status, turn}`**      
 #### Test 1:
-**Test:** *...*   
-**Expect:** *function(???).toEqual(???)* 
-#### Test 2:   
-**Test:** *...*   
-**Expect:** *function(???).toEqual(???)* 
-#### Test 3:   
-**Test:** *...*   
-**Expect:** *function(???).toEqual(e)*   
+**Describe: `Game.prototype.generateBoard()`**
+**Test:** *Return a new 2D array*   
+**Expect:** *game.generateBoard.toEqual([[],[],[]])* 
+#### Test 2:  
+**Describe: `GameBoard.prototype.add(x,y, mark)`** 
+**Test:** *Add players's mark into an array*   
+**Expect:** *gameBoard.add(x,y, 'O).toEqual(gameboard[x][y] === 'O')* 
+#### Test 3:
+**Describe: `GameBoard.prototype.value(x,y)`**   
+**Test:** *Will return a position inside an array(aka gameboard)*   
+**Expect:** *gameBoard.value(2,0).toEqual(gameboard[2][0])*   
 #### Test 4:   
 **Test:** *...*   
 **Expect:** *function(???).toEqual(???)* 

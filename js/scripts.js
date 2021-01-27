@@ -14,19 +14,60 @@
 // board.gameOver(); // returns a boolean
 
 
-function gameboard() {
-  board = [];
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 3; j++) {
-      board[i, j] = "";
-    }
-  }
+// function Gameboard() {
+//   board = [];
+//   for (let i = 0; i < 3; i++) {
+//     for (let j = 0; j < 3; j++) {
+//       board[i][j] = "#";
+
+//     }
+//   }
+// }
+
+// function cleanGameboard() {
+//   board = [[],[],[]];
+//   for (let i = 0; i < 3; i++) {
+//     for (let j = 0; j < 3; j++) {
+//       board[i][j] = "";
+//     }
+//   }
+//   return board;
+// }
+
+function Player(mark) {
+  this.score = 0;
+  this.mark = mark;
 }
 
-function checkIfWin(gameboard, winArray, symbol) {
-  for (i = 0; i < winArray.length; i++) {
+function Game() {
+  this.players = {};
+  this.higherScore = higherScore;
+  this.status = true;
+  this.turn = "O";
+}
 
-    if (winArray[0] == symbol)
-
+Game.prototype.generateBoard = function() {
+  board = [
+    [],
+    [],
+    []
+  ];
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      board[i][j] = "";
+    }
   }
-};
+  return board;
+}
+
+function GameBoard() {
+  this.board = board;
+}
+
+GameBoard.prototype.add = function(x, y, mark) {
+  this.board[x][y] = mark;
+}
+
+GameBoard.prototype.value = function(x, y) {
+  return this.board[x][y]
+}

@@ -60,8 +60,8 @@ Game.prototype.generateBoard = function() {
   return board;
 }
 
-function GameBoard() {
-  this.board = board;
+function GameBoard(game) {
+  this.board = game.generateBoard();
 }
 
 GameBoard.prototype.add = function(x, y, mark) {
@@ -69,7 +69,7 @@ GameBoard.prototype.add = function(x, y, mark) {
 }
 
 GameBoard.prototype.value = function(x, y) {
-  return this.board[x][y]
+  return this.board[x][y];
 }
 
 let p1 = new Player("O");
@@ -78,12 +78,17 @@ let game = new Game();
 
 
 
-
-
 $(document).ready(function() {
+
+  let currentBoard = new GameBoard(game);
+
   $("#gameboard>div>div").on("click", function() {
     $(this).addClass("clicked");
     const id = $(this).attr("id");
-    console.log(id);
+    const x = parseInt(id[1]);
+    const y = parseInt(id[0]);
+    currentBoard.add(x, y, "X");
+    console.log(`X:${x} Y:${y}`);
+    console.log(currentBoard.board);
   });
 });

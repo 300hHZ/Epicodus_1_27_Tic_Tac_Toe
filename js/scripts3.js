@@ -66,31 +66,36 @@ function Game(p1, p2) {
   this.higherScore = 0;
   //this.status = true;
   this.turn = 0;
+  this.gameBoard = GameBoard();
 }
 
-Game.prototype.generateBoard = function() {
-  board = [
-    [],
-    [],
-    []
-  ];
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 3; j++) {
-      board[i][j] = "";
-    }
-  }
-  return board;
-}
+// Game.prototype.generateBoard = function() {
+//   board = [
+//     [],
+//     [],
+//     []
+//   ];
+//   for (let i = 0; i < 3; i++) {
+//     for (let j = 0; j < 3; j++) {
+//       board[i][j] = "";
+//     }
+//   }
+//   return board;
+// }
 
 Game.prototype.win = function() {
   // display who won
   // reset the board
   // update higher score
-  //currentBoard.board = game.GameBoard();
+  currentBoard.board = game.GameBoard();
 }
 
 function GameBoard(game) {
-  this.board = game.generateBoard();
+  this.board = [
+    [],
+    [],
+    []
+  ];
 }
 
 GameBoard.prototype.add = function(x, y, mark) {
@@ -101,6 +106,14 @@ GameBoard.prototype.value = function(x, y) {
   return this.board[x][y];
 }
 
+GameBoard.prototype.newBoard = function() {
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      this.board[i][j] = "";
+    }
+  }
+}
+
 let p1 = new Player("O");
 let p2 = new Player("X");
 let game = new Game(p1, p2);
@@ -108,15 +121,15 @@ let game = new Game(p1, p2);
 function checkIfWin(gameboard, winArray, symbol) {
   for (i = 0; i < winArray.length; i++) {
     if (gameboard.value(winArray[i][0][0], winArray[i][0][1]) === symbol && gameboard.value(winArray[i][1][0], winArray[i][1][1]) === symbol && gameboard.value(winArray[i][2][0], winArray[i][2][1]) === symbol)
-      console.log("Woop")
-    game.win()
+      console.log("Woop");
   }
 };
 
 
 $(document).ready(function() {
 
-  let currentBoard = new GameBoard(game);
+  // let currentBoard = game.newBoard();
+  game.gameBoard.newBoard();
 
   $("#gameboard>div>div").on("click", function() {
     $(this).addClass("clicked");

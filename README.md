@@ -13,39 +13,33 @@ This game design for 2 players (also knowon as noughts and crosses (Commonwealth
 
 ## *Tests*
 
-**Describe: `constractor Player() {score and mark}`**   
-**Describe: `constractor GameBoard() {2D array}`**
-**Describe: `constractor Game() {players, higher score, game status, turn}`**      
+**Describe: `constractor Player(mark) {score and mark}`**      
+**Describe: `constractor GameBoard() {this board = 2D array}`**   
+**Describe: `constractor Game(player1, player2) {players, higher score, game Board, turn}`**      
+
 #### Test 1:
-**Describe: `Game.prototype.generateBoard()`**
-**Test:** *Return a new 2D array*   
+**Describe: `GameBoard.prototype.newBoard()`**   
+**Test:** *Return an empty 2D array*   
 **Expect:** *game.generateBoard.toEqual([[],[],[]])* 
 #### Test 2:  
-**Describe: `GameBoard.prototype.add(x,y, mark)`** 
-**Test:** *Add players's mark into an array*   
-**Expect:** *gameBoard.add(x,y, 'O).toEqual(gameboard[x][y] === 'O')* 
+**Describe: `GameBoard.prototype.value(x,y)`**    
+**Test:** *Return a position inside an array(aka gameboard)*     
+**Expect:** *gameBoard.add(1,2).toEqual(this.board[1][2])* 
 #### Test 3:
-**Describe: `GameBoard.prototype.value(x,y)`**   
-**Test:** *Will return a position inside an array(aka gameboard)*   
-**Expect:** *gameBoard.value(2,0).toEqual(gameboard[2][0])*   
-#### Test 4:   
-**Test:** *...*   
-**Expect:** *function(???).toEqual(???)* 
-
-**Describe: `function()`**   
-#### Test 1:
-**Test:** *...*   
-**Expect:** *function(???).toEqual(???)* 
-#### Test 2:   
-**Test:** *...*   
-**Expect:** *function(???).toEqual(???)* 
-#### Test 3:   
-**Test:** *...*   
-**Expect:** *function(???).toEqual(e)*   
-#### Test 4:   
-**Test:** *...*   
-**Expect:** *function(???).toEqual(???)* 
-
+**Describe: `checkIfWin(gameBoard, mark)`**   
+**Test:** *Will return 'win' if player has winning combination, 'no' if game still in progress(empty squares still in a grid) or 'tie' if the board is full and no one has winning combination*   
+**Expect:** *checkIfWin(board,X).toEqual('no')*   
+**Expect:** *checkIfWin(board,X).toEqual('win')*   
+**Expect:** *checkIfWin(board,X).toEqual('tie')*   
+#### Test 4:
+**Describe: `Player.prototype.upScore()`**   
+**Test:** *Update score for player who just won*   
+**Expect:** *Player.upScore().toEqual(this.score+=1)* 
+#### Test 5:   
+**Describe: `GameBoard.prototype.add(x, y, mark)`**   
+**Test:** *Add mark of this player into the clicked square*      
+**Expect:** *GameBoard.add(0, 1, X).toEqual(this.board[0][1] === 'X')*    
+**Expect:** *GameBoard.add(1, 2, O).toEqual(this.board[1][2] === 'O')* 
 ## *Setup instructions:*
 #### From the web:
 * Go to my GitHub repository, using following [URL](https://github.com/DanielAdeyemi/Epicodus_1_27_Tic_Tac_Toe.git).
@@ -58,7 +52,7 @@ This game design for 2 players (also knowon as noughts and crosses (Commonwealth
 * Execute **code .** command in your terminal and it will open all source code in your code editor.    
 *Note: please, make sure that you are inside project directory!*
 #### GitHub pages:
-*GitHub page is unavailable for this project*
+*Click [this link](https://danieladeyemi.github.io/Epicodus_1_27_Tic_Tac_Toe) to open GitHub page*
 
 ## *Tecnologies used:*
 * HTML
@@ -69,7 +63,7 @@ This game design for 2 players (also knowon as noughts and crosses (Commonwealth
 * Git and GitHub
 
 ## *Known bugs:*
-This project has almost no style and was used only for practice purporse.
+This project is not storing user's data and set all score back to 0 if page was refreshed.
 
 ## *License and copyright:*
 

@@ -84,7 +84,7 @@ $(document).ready(function() {
   $(".restart").on("click", function(event) {
     $("#tie").hide();
     $("#win").hide();
-    $("#gametotal").show();
+    $("#gameboard").show();
     $("#gameboard>div>div").removeClass("clicked");
     $("#xScore").text(p2.score);
     $("#oScore").text(p1.score);
@@ -106,10 +106,11 @@ $(document).ready(function() {
     //check if win condition
     let winCon = checkIfWin(game.gameBoard, mark);
     if (winCon === "win") {
+
       $("#gameboard>div>div").html("");
       $("#gameboard>div>div").removeClass("clicked");
       game.gameBoard.newBoard();
-      $("#gametotal").hide();
+      $("#gameboard").hide();
       $("#win").show();
       game.players[game.turn].upScore();
       $("#win span").text(game.players[game.turn].mark)
@@ -118,7 +119,7 @@ $(document).ready(function() {
       $("#gameboard>div>div").html("");
       $("#gameboard>div>div").removeClass("clicked");
       game.gameBoard.newBoard();
-      $("#gametotal").hide();
+      $("#gameboard").hide();
       $("#tie").show();
     }
     game.turn = (game.turn ? 0 : 1);

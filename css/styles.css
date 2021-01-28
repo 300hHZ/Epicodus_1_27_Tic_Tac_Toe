@@ -116,6 +116,22 @@ body {
   background-color: #008000;
 }
 
+.boxb {
+  border-bottom: 2.5px solid #00af00;
+}
+
+.boxl {
+  border-left: 2.5px solid #00af00;
+}
+
+.boxr {
+  border-right: 2.5px solid #00af00;
+}
+
+.boxt {
+  border-top: 2.5px solid #00af00;
+}
+
 #gameboard>div>div:hover {
   background-color: blue;
 }
@@ -134,11 +150,8 @@ body {
   height: 600px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5vw;
-  border-radius: 20px;
   overflow: hidden;
   background-color: greenyellow;
-  border: 5px solid #00af00;
 }
 
 #tie {
@@ -146,11 +159,8 @@ body {
   height: 600px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5vw;
-  border-radius: 20px;
   overflow: hidden;
   background-color: orangered;
-  border: 5px solid #00af00;
 }
 
 #tie h2, #win h2 {

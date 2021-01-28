@@ -6,7 +6,7 @@ ___
 ---
 ## *Description:*
 ### *{Some concise description}* 
-This web page will ???
+This web page will ...
 
 ## *Blueprint of bussiness logic*
 ![img](img/whiteboard.png)

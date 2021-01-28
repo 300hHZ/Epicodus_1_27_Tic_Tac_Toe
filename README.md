@@ -18,26 +18,26 @@ This game design for 2 players (also knowon as noughts and crosses (Commonwealth
 #### Test 1:
 **Describe: `GameBoard.prototype.newBoard()`**   
 **Test:** *Return an empty 2D array*   
-**Expect:** *game.generateBoard.toEqual([[],[],[]])* 
+**Expect:** *game.generateBoard.toEqual([[],[],[]])* ✅   
 #### Test 2:  
 **Describe: `GameBoard.prototype.value(x,y)`**    
 **Test:** *Return a position inside an array(aka gameboard)*     
-**Expect:** *gameBoard.add(1,2).toEqual(this.board[1][2])* 
+**Expect:** *gameBoard.add(1,2).toEqual(this.board[1][2])* ✅   
 #### Test 3:
 **Describe: `checkIfWin(gameBoard, mark)`**   
 **Test:** *Will return 'win' if player has winning combination, 'no' if game still in progress(empty squares still in a grid) or 'tie' if the board is full and no one has winning combination*   
-**Expect:** *checkIfWin(board,X).toEqual('no')*   
-**Expect:** *checkIfWin(board,X).toEqual('win')*   
-**Expect:** *checkIfWin(board,X).toEqual('tie')*   
+**Expect:** *checkIfWin(board,X).toEqual('no')*   ✅   
+**Expect:** *checkIfWin(board,X).toEqual('win')*  ✅   
+**Expect:** *checkIfWin(board,X).toEqual('tie')*  ✅   
 #### Test 4:
 **Describe: `Player.prototype.upScore()`**   
-**Test:** *Update score for player who just won*   
-**Expect:** *Player.upScore().toEqual(this.score+=1)* 
+**Test:** *Update score for player who just won*   ✅   
+**Expect:** *Player.upScore().toEqual(this.score+=1)* ✅    
 #### Test 5:   
 **Describe: `GameBoard.prototype.add(x, y, mark)`**   
 **Test:** *Add mark of this player into the clicked square*      
-**Expect:** *GameBoard.add(0, 1, X).toEqual(this.board[0][1] === 'X')*    
-**Expect:** *GameBoard.add(1, 2, O).toEqual(this.board[1][2] === 'O')* 
+**Expect:** *GameBoard.add(0, 1, X).toEqual(this.board[0][1] === 'X')*    ✅   
+**Expect:** *GameBoard.add(1, 2, O).toEqual(this.board[1][2] === 'O')*    ✅   
 ## *Setup instructions:*
 #### From the web:
 * Go to my GitHub repository, using following [URL](https://github.com/DanielAdeyemi/Epicodus_1_27_Tic_Tac_Toe.git).

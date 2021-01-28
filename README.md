@@ -41,7 +41,7 @@ This game design for 2 players (also knowon as noughts and crosses (Commonwealth
 ## *Setup instructions:*
 #### From the web:
 * Go to my GitHub repository, using following [URL](https://github.com/DanielAdeyemi/Epicodus_1_27_Tic_Tac_Toe.git).
-* Click the "Code" and click the 'Download zip' option.
+* Click the !["Code"](img/code.png) and click the !['Download zip'](img/zip.png) option.
 * Unzip the file, navigate to the root directory.
 * open ***'index.html'*** file with your web browser.
 #### From the terminal: 

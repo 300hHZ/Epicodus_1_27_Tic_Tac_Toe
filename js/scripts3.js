@@ -100,8 +100,6 @@ $(document).ready(function() {
     const y = parseInt(id[1]);
     const mark = game.players[game.turn].mark;
     game.gameBoard.add(x, y, mark);
-    console.log(`X:${x} Y:${y}`);
-    console.log(game.gameBoard);
     $(this).html(game.players[game.turn].mark);
     //check if win condition
     let winCon = checkIfWin(game.gameBoard, mark);
@@ -114,7 +112,6 @@ $(document).ready(function() {
       $("#win").show();
       game.players[game.turn].upScore();
       $("#win span").text(game.players[game.turn].mark)
-      console.log("Player " + (game.turn + 1) + " wins!");
     } else if (winCon == "tie") {
       $("#gameboard>div>div").html("");
       $("#gameboard>div>div").removeClass("clicked");

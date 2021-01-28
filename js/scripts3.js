@@ -1,43 +1,10 @@
-// // const winArray = [
-// [
-//   [0, 0],
-//   [0, 1],
-//   [0, 2]
-// ], [
-//   [1, 0],
-//   [1, 1],
-//   [1, 2]
-// ], [
-//   [2, 0],
-//   [2, 1],
-//   [2, 2]
-// ], [
-//   [0, 0],
-//   [1, 0],
-//   [2, 0]
-// ], [
-//   [0, 1],
-//   [1, 1],
-//   [2, 1]
-// ], [
-//   [0, 2],
-//   [1, 2],
-//   [2, 2]
-// ], [
-//   [0, 0],
-//   [1, 1],
-//   [2, 2]
-// ], [
-//   [2, 0],
-//   [1, 1],
-//   [0, 2]
-// ]
-// ]
-
-
 function Player(mark) {
   this.score = 0;
   this.mark = mark;
+}
+
+Player.prototype.upScore = function() {
+  this.score += 1;
 }
 
 function Game(p1, p2) {
@@ -48,29 +15,7 @@ function Game(p1, p2) {
   this.gameBoard = new GameBoard();
 }
 
-// Game.prototype.generateBoard = function() {
-//   board = [
-//     [],
-//     [],
-//     []
-//   ];
-//   for (let i = 0; i < 3; i++) {
-//     for (let j = 0; j < 3; j++) {
-//       board[i][j] = "";
-//     }
-//   }
-//   return board;
-// }
-
-Game.prototype.win = function() {
-  //   // display who won
-  //   // reset the board
-  //   // update higher score
-  //   currentBoard.board = game.GameBoard();
-}
-
 function GameBoard() {
-  // this.board = game.generateBoard();
   this.board = [
     [],
     [],
@@ -119,6 +64,7 @@ function checkIfWin(gameBoard, mark) {
   return "tie";
 }
 
+// UI
 
 $(document).ready(function() {
   //click handlers for UI
@@ -130,6 +76,9 @@ $(document).ready(function() {
   $("#startButton").on("click", function(event) {
     $("#start").hide();
     $("#gametotal").show();
+    $("#currentPlayer>span").text(game.players[game.turn].mark)
+    $("#xScore").text(p2.score);
+    $("#oScore").text(p1.score);
   });
 
   $(".restart").on("click", function(event) {
@@ -137,6 +86,8 @@ $(document).ready(function() {
     $("#win").hide();
     $("#gametotal").show();
     $("#gameboard>div>div").removeClass("clicked");
+    $("#xScore").text(p2.score);
+    $("#oScore").text(p1.score);
   })
 
   // let currentBoard = game.newBoard();
@@ -152,21 +103,25 @@ $(document).ready(function() {
     console.log(`X:${x} Y:${y}`);
     console.log(game.gameBoard);
     $(this).html(game.players[game.turn].mark);
-    // //check if win condition
-    // checkIfWin(game.gameBoard, winArray, game.players[game.turn].mark);
-
-    /* can simplify to checkIfWin(game.gameBoard.board, */
-    if (checkIfWin(game.gameBoard, mark) === "win") {
+    //check if win condition
+    let winCon = checkIfWin(game.gameBoard, mark);
+    if (winCon === "win") {
       $("#gameboard>div>div").html("");
       $("#gameboard>div>div").removeClass("clicked");
       game.gameBoard.newBoard();
       $("#gametotal").hide();
       $("#win").show();
-      // up active player score by 1
+      game.players[game.turn].upScore();
       $("#win span").text(game.players[game.turn].mark)
-
       console.log("Player " + (game.turn + 1) + " wins!");
+    } else if (winCon == "tie") {
+      $("#gameboard>div>div").html("");
+      $("#gameboard>div>div").removeClass("clicked");
+      game.gameBoard.newBoard();
+      $("#gametotal").hide();
+      $("#tie").show();
     }
     game.turn = (game.turn ? 0 : 1);
+    $("#currentPlayer>span").text(game.players[game.turn].mark)
   });
 });

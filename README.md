@@ -6,7 +6,7 @@ ___
 ---
 ## *Description:*
 ### *Are you up for some Tic Tac Toe? Let's play!* 
-This game design for 2 players (also knowon as noughts and crosses (Commonwealth English), or Xs and Os/“X’y O’sies” (Ireland)), is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a diagonal, horizontal, or vertical row is the winner. It is a solved game with a forced draw assuming best play from both players.
+This game design for 2 players (also knowon as noughts and crosses (Commonwealth English), or Xs and Os/“X’y O’sies” (Ireland)), is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a diagonal, horizontal, or vertical row is the winner. It is a solved game with a forced draw assuming best play from both players. If Player 1 won - Player 2 will start next game. If it's a tie - Player who forced the tie will move second.
 
 ## *Whiteboarding of bussiness logic*
 ![img](img/whiteboard.png)

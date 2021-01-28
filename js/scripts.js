@@ -1,3 +1,5 @@
+// This is first version of our logic
+
 const winArray = [
     [
       [0, 0],

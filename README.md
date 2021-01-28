@@ -48,12 +48,12 @@ This web page will ...
 
 ## *Setup instructions:*
 #### From the web:
-* Go to my GitHub repository, using following [URL](#).
+* Go to my GitHub repository, using following [URL](https://github.com/DanielAdeyemi/Epicodus_1_27_Tic_Tac_Toe.git).
 * Click the "Code" and click the 'Download zip' option.
 * Unzip the file, navigate to the root directory.
 * open ***'index.html'*** file with your web browser.
 #### From the terminal: 
-* Clone my repository from GitHub using `git clone #`
+* Clone my repository from GitHub using `git clone https://github.com/DanielAdeyemi/Epicodus_1_27_Tic_Tac_Toe.git`
 * Navigate to the downloaded folder using ***cd*** command
 * Execute **code .** command in your terminal and it will open all source code in your code editor.    
 *Note: please, make sure that you are inside project directory!*

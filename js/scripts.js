@@ -64,7 +64,7 @@ function Player(mark) {
 function Game(p1, p2) {
   this.players = [p1, p2];
   this.higherScore = 0;
-  this.status = true;
+  //this.status = true;
   this.turn = 0;
 }
 
@@ -80,6 +80,13 @@ Game.prototype.generateBoard = function() {
     }
   }
   return board;
+}
+
+Game.prototype.win = function() {
+  // display who won
+  // reset the board
+  // update higher score
+  currentBoard.board = game.GameBoard();
 }
 
 function GameBoard(game) {
@@ -101,7 +108,7 @@ let game = new Game(p1, p2);
 function checkIfWin(gameboard, winArray, symbol) {
   for (i = 0; i < winArray.length; i++) {
     if (gameboard.value(winArray[i][0][0], winArray[i][0][1]) === symbol && gameboard.value(winArray[i][1][0], winArray[i][1][1]) === symbol && gameboard.value(winArray[i][2][0], winArray[i][2][1]) === symbol)
-      console.log("Woop")
+      console.log("Woop");
   }
 };
 

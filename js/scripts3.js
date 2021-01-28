@@ -1,59 +1,38 @@
-const winArray = [
-    [
-      [0, 0],
-      [0, 1],
-      [0, 2]
-    ],
-    [
-      [1, 0],
-      [1, 1],
-      [1, 2]
-    ],
-    [
-      [2, 0],
-      [2, 1],
-      [2, 2]
-    ],
-    [
-      [0, 0],
-      [1, 0],
-      [2, 0]
-    ],
-    [
-      [0, 1],
-      [1, 1],
-      [2, 1]
-    ],
-    [
-      [0, 2],
-      [1, 2],
-      [2, 2]
-    ],
-    [
-      [0, 0],
-      [1, 1],
-      [2, 2]
-    ],
-    [
-      [2, 0],
-      [1, 1],
-      [0, 2]
-    ]
-  ]
-  //------Example code
-  // let testPlayer = new Player("X");
-  // testPlayer.mark(); // returns "X"
-
-// let board = new Board();
-// let testSpace = board.find(1, 2); // board.find(1,2) returns a Space object
-
-// testSpace.xCoordinate(); // returns 1
-// testSpace.yCoordinate(); // returns 2
-
-// testSpace.mark(testPlayer);
-// testSpace.markedBy(); // returns testPlayer or "X"
-
-// board.gameOver(); // returns a boolean
+// // const winArray = [
+// [
+//   [0, 0],
+//   [0, 1],
+//   [0, 2]
+// ], [
+//   [1, 0],
+//   [1, 1],
+//   [1, 2]
+// ], [
+//   [2, 0],
+//   [2, 1],
+//   [2, 2]
+// ], [
+//   [0, 0],
+//   [1, 0],
+//   [2, 0]
+// ], [
+//   [0, 1],
+//   [1, 1],
+//   [2, 1]
+// ], [
+//   [0, 2],
+//   [1, 2],
+//   [2, 2]
+// ], [
+//   [0, 0],
+//   [1, 1],
+//   [2, 2]
+// ], [
+//   [2, 0],
+//   [1, 1],
+//   [0, 2]
+// ]
+// ]
 
 
 function Player(mark) {
@@ -66,7 +45,7 @@ function Game(p1, p2) {
   this.higherScore = 0;
   //this.status = true;
   this.turn = 0;
-  this.gameBoard = GameBoard();
+  this.gameBoard = new GameBoard();
 }
 
 // Game.prototype.generateBoard = function() {
@@ -84,26 +63,19 @@ function Game(p1, p2) {
 // }
 
 Game.prototype.win = function() {
-  // display who won
-  // reset the board
-  // update higher score
-  currentBoard.board = game.GameBoard();
+  //   // display who won
+  //   // reset the board
+  //   // update higher score
+  //   currentBoard.board = game.GameBoard();
 }
 
-function GameBoard(game) {
+function GameBoard() {
+  // this.board = game.generateBoard();
   this.board = [
     [],
     [],
     []
   ];
-}
-
-GameBoard.prototype.add = function(x, y, mark) {
-  this.board[x][y] = mark;
-}
-
-GameBoard.prototype.value = function(x, y) {
-  return this.board[x][y];
 }
 
 GameBoard.prototype.newBoard = function() {
@@ -114,19 +86,58 @@ GameBoard.prototype.newBoard = function() {
   }
 }
 
+GameBoard.prototype.add = function(x, y, mark) {
+  this.board[x][y] = mark;
+}
+
+GameBoard.prototype.value = function(x, y) {
+  return this.board[x][y];
+}
+
 let p1 = new Player("O");
 let p2 = new Player("X");
 let game = new Game(p1, p2);
 
-function checkIfWin(gameboard, winArray, symbol) {
-  for (i = 0; i < winArray.length; i++) {
-    if (gameboard.value(winArray[i][0][0], winArray[i][0][1]) === symbol && gameboard.value(winArray[i][1][0], winArray[i][1][1]) === symbol && gameboard.value(winArray[i][2][0], winArray[i][2][1]) === symbol)
-      console.log("Woop");
+function checkIfWin(gameBoard, mark) {
+  const threeInARow = mark + mark + mark;
+  let board = gameBoard.board;
+  for (let i = 0; i < 3; i++) {
+    if (board[i].join('') === threeInARow ||
+      (board[0][i] + board[1][i] + board[2][i]) === threeInARow) {
+      return "win";
+    }
   }
-};
+  if ((board[0][0] + board[1][1] + board[2][2]) === threeInARow ||
+    (board[2][0] + board[1][1] + board[0][2]) === threeInARow)
+    return "win";
+
+  for (i = 0; i <= 2; i++) {
+    for (f = 0; f <= 2; f++) {
+      if (gameBoard.value(i, f) === "") { return "no" }
+    }
+  }
+  return "tie";
+}
 
 
 $(document).ready(function() {
+  //click handlers for UI
+  $("#gametotal").hide();
+  $("#win").hide();
+  $("#tie").hide();
+
+
+  $("#startButton").on("click", function(event) {
+    $("#start").hide();
+    $("#gametotal").show();
+  });
+
+  $(".restart").on("click", function(event) {
+    $("#tie").hide();
+    $("#win").hide();
+    $("#gametotal").show();
+    $("#gameboard>div>div").removeClass("clicked");
+  })
 
   // let currentBoard = game.newBoard();
   game.gameBoard.newBoard();
@@ -134,14 +145,28 @@ $(document).ready(function() {
   $("#gameboard>div>div").on("click", function() {
     $(this).addClass("clicked");
     const id = $(this).attr("id");
-    const x = parseInt(id[1]);
-    const y = parseInt(id[0]);
-    currentBoard.add(x, y, game.players[game.turn].mark);
+    const x = parseInt(id[0]);
+    const y = parseInt(id[1]);
+    const mark = game.players[game.turn].mark;
+    game.gameBoard.add(x, y, mark);
     console.log(`X:${x} Y:${y}`);
-    console.log(currentBoard.board);
+    console.log(game.gameBoard);
     $(this).html(game.players[game.turn].mark);
-    //check if win condition
-    checkIfWin(currentBoard, winArray, game.players[game.turn].mark);
+    // //check if win condition
+    // checkIfWin(game.gameBoard, winArray, game.players[game.turn].mark);
+
+    /* can simplify to checkIfWin(game.gameBoard.board, */
+    if (checkIfWin(game.gameBoard, mark) === "win") {
+      $("#gameboard>div>div").html("");
+      $("#gameboard>div>div").removeClass("clicked");
+      game.gameBoard.newBoard();
+      $("#gametotal").hide();
+      $("#win").show();
+      // up active player score by 1
+      $("#win span").text(game.players[game.turn].mark)
+
+      console.log("Player " + (game.turn + 1) + " wins!");
+    }
     game.turn = (game.turn ? 0 : 1);
   });
 });

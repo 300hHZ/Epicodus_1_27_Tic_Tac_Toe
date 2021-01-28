@@ -1,7 +1,110 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#start {
+  background-color: green;
+  width: 600px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vw;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 5px solid #00af00;
+}
+
+#start>h2 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 100px;
+  line-height: 20%;
+}
+
+#startButton {
+  width: 200px;
+  height: 100px;
+  border-radius: 30px;
+  border: none;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 200px;
+  outline: none;
+}
+
+#startButton:hover {
+  position: relative;
+  bottom: 5px;
+  right: 5px;
+  box-shadow: 5px 5px #00af00
+}
+
+#startButton:active {
+  bottom: 2px;
+  right: 2px;
+  box-shadow: 2px 2px #00af00;
+  outline: none;
+}
+
+@keyframes pandown {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 0px;
+  }
+}
+
+#scoreboard {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  animation: pandown 2s;
+  z-index: 1;
+}
+
+#scoreboard div {
+  background-color: white;
+  margin-top: 10px;
+  height: 80px;
+  width: 150px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+@keyframes width {
+  from {
+    height: 600px;
+  }
+  to {
+    height: 700px;
+  }
+}
+
+#gametotal {
+  height: 710px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 5vw;
+  background-color: blue;
+  border-radius: 20px;
+  animation: width 2s;
+  box-sizing: content-box;
+  border: 5px solid #00af00;
+  overflow: hidden;
+}
+
 #gameboard {
+  position: relative;
   width: 600px;
   height: 600px;
   display: flex;
+  z-index: 5;
 }
 
 #gameboard>div {
@@ -10,7 +113,7 @@
 
 #gameboard>div>div {
   height: 200px;
-  background-color: green;
+  background-color: #008000;
 }
 
 #gameboard>div>div:hover {
@@ -24,4 +127,65 @@
   text-align: center;
   padding: 0px;
   line-height: 180px;
+}
+
+#win {
+  width: 600px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vw;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: greenyellow;
+  border: 5px solid #00af00;
+}
+
+#tie {
+  width: 600px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vw;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: orangered;
+  border: 5px solid #00af00;
+}
+
+#tie h2, #win h2 {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 100px;
+  line-height: 85%;
+}
+
+#tie button, #win button {
+  width: 200px;
+  height: 100px;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-radius: 30px;
+  border: none;
+  font-weight: 900;
+  font-size: 25px;
+  outline: none;
+}
+
+#win button {
+  margin-top: 85px;
+}
+
+#tie button:hover, #win button:hover {
+  position: relative;
+  bottom: 5px;
+  right: 5px;
+  box-shadow: 5px 5px #00af00
+}
+
+#tie button:active, #win button:active {
+  bottom: 2px;
+  right: 2px;
+  box-shadow: 2px 2px #00af00;
+  outline: none;
 }

@@ -26,7 +26,7 @@ This game design for 2 players (also knowon as noughts and crosses (Commonwealth
 #### Test 3:
 **Describe: `checkIfWin(gameBoard, mark)`**   
 **Test:** *Will return 'win' if player has winning combination, 'no' if game still in progress(empty squares still in a grid) or 'tie' if the board is full and no one has winning combination*   
-**Expect:** *checkIfWin(board,X).toEqual('no')*   ✅   
+**Expect:** *checkIfWin(board,X).toEqual('no')*   ✅    
 **Expect:** *checkIfWin(board,X).toEqual('win')*  ✅   
 **Expect:** *checkIfWin(board,X).toEqual('tie')*  ✅   
 #### Test 4:
@@ -50,7 +50,7 @@ This game design for 2 players (also knowon as noughts and crosses (Commonwealth
 * Execute **code .** command in your terminal and it will open all source code in your code editor.    
 *Note: please, make sure that you are inside project directory!*
 #### GitHub pages:
-*Click [this link](https://danieladeyemi.github.io/Epicodus_1_27_Tic_Tac_Toe) to open GitHub page*
+*Click [this link](https://danieladeyemi.github.io/Epicodus_1_27_Tic_Tac_Toe/) to open GitHub page*
 
 ## *Tecnologies used:*
 * HTML
